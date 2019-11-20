@@ -1,11 +1,11 @@
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import React, { useMemo } from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
 import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes';
 import * as serviceWorker from './serviceWorker';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import GlobalCss from './themes/globalCss';
 import getTheme from './themes/theme';
 
@@ -15,6 +15,8 @@ const App = () => {
 
   return (
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <GlobalCss />
       <BrowserRouter>
         <Routes />
       </BrowserRouter>
