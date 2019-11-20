@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import ReactDOM from 'react-dom';
+import Routes from './routes';
+import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import GlobalCss from './themes/globalCss';
+import getTheme from './themes/theme';
 
-ReactDOM.render(<h1>Hello :)</h1>, document.getElementById('root'));
+const App = () => {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const theme = useMemo(() => getTheme(prefersDarkMode), [prefersDarkMode]);
+
+  return (
+    <MuiThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </MuiThemeProvider>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
