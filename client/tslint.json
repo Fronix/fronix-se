@@ -10,7 +10,8 @@
           "severity": "warning",
           "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
       },
-      "quotemark": [true, "single"]
+      "quotemark": [true, "single"],
+      "trailing-comma": [false]
   },
   "jsRules": {
       "max-line-length": {
