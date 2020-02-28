@@ -1,5 +1,4 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import React, { useMemo } from 'react';
 import ReactDOM from 'react-dom';
@@ -8,19 +7,24 @@ import Routes from './routes';
 import * as serviceWorker from './serviceWorker';
 import GlobalCss from './themes/globalCss';
 import getTheme from './themes/theme';
+import { StoreProvider } from 'easy-peasy';
+import store from './store';
+import ThemeProvider from './themes/ThemeProvider';
 
 const App = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = useMemo(() => getTheme(prefersDarkMode), [prefersDarkMode]);
 
   return (
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <GlobalCss />
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-    </MuiThemeProvider>
+    <StoreProvider store={store}>
+      <ThemeProvider>
+        <CssBaseline />
+        <GlobalCss />
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </ThemeProvider>
+    </StoreProvider>
   );
 };
 
