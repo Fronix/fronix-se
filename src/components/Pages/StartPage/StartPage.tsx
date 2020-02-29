@@ -31,11 +31,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const StartPage = () => {
   const classes = useStyles();
+  const toggleTheme = useStoreActions(actions => actions.themeSettings.togglePrefersDarkMode);
   const setResume = useStoreActions(actions => actions.resume.setResume);
   const resumeState = useStoreState(state => state.resume);
+  const prefersDarkMode = useStoreState(state => state.themeSettings.prefersDarkMode);
   const terminalRef: any = createRef();
-  const resumeCommands = ['experience', 'info', 'skills', 'education', 'projects'];
   const uniqueKey = Math.random().toString();
+
   const commands = {
     echo: {
       description: 'Echo a passed string.',
@@ -73,6 +75,14 @@ const StartPage = () => {
           </Grid>
         );
       }
+    },
+    'toggle-theme': {
+      description: 'Toggles theme between light and dark',
+      usage: `toggle-theme`,
+      fn: () => {
+        toggleTheme();
+        return `Theme is set to ${prefersDarkMode ? 'Light mode' : 'Dark mode'}`;
+      }
     }
   };
 
@@ -97,6 +107,7 @@ const StartPage = () => {
               </div>
             }
             promptLabel={'root@fronix.se:'}
+            disableOnProcess
           />
         </Pane>
       </Grid>
