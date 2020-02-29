@@ -1,0 +1,179 @@
+{
+  "basics": {
+    "name": "Oscar Martin",
+    "picture": "https://avatars2.githubusercontent.com/u/631180?v=4",
+    "label": "@meridium ",
+    "headline": "Webdev\r\nReact, C# and TypeScript\r\nI also dabble in perfection",
+    "summary": null,
+    "website": "www.fronix.se",
+    "blog": null,
+    "yearsOfExperience": null,
+    "id": "eb7423bd-e1f3-4f2c-b37f-c8b16d7ebb51",
+    "username": "Fronix",
+    "karma": 10,
+    "email": null,
+    "region": "Sweden",
+    "location": {
+
+    },
+    "phone": null,
+    "followers": 1,
+    "following": 0,
+    "profiles": [
+      {
+        "network": "gitconnected",
+        "username": "Fronix",
+        "url": "https://gitconnected.com/Fronix"
+      },
+      {
+        "network": "GitHub",
+        "username": "Fronix",
+        "url": "https://github.com/Fronix"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "JavaScript",
+      "level": "Intermediate",
+      "rating": 3,
+      "yearsOfExperience": 3,
+      "keywords": [
+
+      ]
+    },
+    {
+      "name": "React",
+      "level": "Advanced",
+      "rating": 4,
+      "yearsOfExperience": 2,
+      "keywords": [
+
+      ]
+    },
+    {
+      "name": "C#",
+      "level": "Intermediate",
+      "rating": 3,
+      "yearsOfExperience": 2,
+      "keywords": [
+
+      ]
+    },
+    {
+      "name": "PHP",
+      "level": "Advanced",
+      "rating": 4,
+      "yearsOfExperience": 4,
+      "keywords": [
+
+      ]
+    },
+    {
+      "name": "HTML",
+      "level": "Advanced",
+      "rating": 4,
+      "yearsOfExperience": 5,
+      "keywords": [
+
+      ]
+    },
+    {
+      "name": "CSS",
+      "level": "Advanced",
+      "rating": 4,
+      "yearsOfExperience": 5,
+      "keywords": [
+
+      ]
+    }
+  ],
+  "projects": [
+
+  ],
+  "work": [
+    {
+      "company": "TietoEVRY",
+      "position": "Fullstack developer",
+      "website": "https://customer-experience.tieto.com/",
+      "companyLogo": "https://i.imgur.com/RfCkldy.png",
+      "location": "Kalmar, Sweden",
+      "summary": "",
+      "isCurrentRole": true,
+      "startDate": "2018-08-01",
+      "endDate": "",
+      "start": {
+        "year": 2018,
+        "month": 8
+      },
+      "end": {
+
+      },
+      "highlights": [
+
+      ]
+    },
+    {
+      "company": "TietoEVRY",
+      "position": "Fullstack developer",
+      "website": "https://customer-experience.tieto.com/",
+      "companyLogo": "https://i.imgur.com/RfCkldy.png",
+      "location": "Kalmar, Sweden",
+      "summary": "",
+      "isCurrentRole": true,
+      "startDate": "2018-08-01",
+      "endDate": "",
+      "start": {
+        "year": 2018,
+        "month": 8
+      },
+      "end": {
+
+      },
+      "highlights": [
+
+      ]
+    }
+  ],
+  "publications": [
+
+  ],
+  "education": [
+    {
+      "institution": "Self-taught",
+      "area": "",
+      "studyType": "",
+      "startDate": null,
+      "endDate": null,
+      "start": {
+        "year": null,
+        "month": null
+      },
+      "end": {
+        "year": null,
+        "month": null
+      },
+      "description": "",
+      "activities": "",
+      "gpa": "",
+      "courses": [
+
+      ]
+    }
+  ],
+  "volunteer": [
+
+  ],
+  "awards": [
+
+  ],
+  "languages": [
+
+  ],
+  "interests": [
+
+  ],
+  "references": [
+
+  ]
+}

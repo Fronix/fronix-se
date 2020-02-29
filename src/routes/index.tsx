@@ -25,11 +25,11 @@ const Routes = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route path='/' exact component={StartPage} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

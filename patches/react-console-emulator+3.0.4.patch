@@ -1,0 +1,16 @@
+diff --git a/node_modules/react-console-emulator/dist/TerminalMessage.js b/node_modules/react-console-emulator/dist/TerminalMessage.js
+index ffc4cea..3c4a119 100644
+--- a/node_modules/react-console-emulator/dist/TerminalMessage.js
++++ b/node_modules/react-console-emulator/dist/TerminalMessage.js
+@@ -48,9 +48,9 @@ function (_Component) {
+       var styles = {
+         message: _TerminalMessage2["default"]
+       };
+-      return this.props.dangerMode ? _react["default"].createElement("p", (0, _extends2["default"])({
++      return this.props.dangerMode ? _react["default"].createElement("div", (0, _extends2["default"])({
+         style: styles.message
+-      }, (0, _reactInnerHtml["default"])(content))) : _react["default"].createElement("p", {
++      }, (0, _reactInnerHtml["default"])(content))) : _react["default"].createElement("div", {
+         style: styles.message
+       }, content);
+     }

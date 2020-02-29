@@ -1,5 +1,5 @@
 import { Action, action, actionOn, ActionOn } from 'easy-peasy';
-import { StoreModel } from '../';
+import { StoreModel } from '.';
 
 const prefersDarkMode = localStorage.getItem('prefersDarkMode');
 
