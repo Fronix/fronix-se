@@ -1,0 +1,14 @@
+{
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "fronix-se-20200229011810-authRole",
+            "UnauthRoleArn": "arn:aws:iam::132124135046:role/fronix-se-20200229011810-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::132124135046:role/fronix-se-20200229011810-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "fronix-se-20200229011810-deployment",
+            "UnauthRoleName": "fronix-se-20200229011810-unauthRole",
+            "StackName": "fronix-se-20200229011810",
+            "StackId": "arn:aws:cloudformation:eu-west-1:132124135046:stack/fronix-se-20200229011810/f316a0e0-5a88-11ea-b636-0a0af0d573f8"
+        }
+    }
+}
