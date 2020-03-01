@@ -36,10 +36,10 @@ const Rating = ({ props }: RatingProps) => {
 
   return (
     <Grid className={classes.grid} container spacing={2}>
-      <Grid item justify='flex-start' sm={6}>
+      <Grid item xs={8} sm={6} md={4} lg={4} xl={3}>
         <Typography component='legend'>{props.name}</Typography>
       </Grid>
-      <Grid item justify='flex-end' sm={1}>
+      <Grid item xs={2} sm={6} md={4} lg={4} xl={3}>
         <Typography color='textSecondary' component='legend'>
           {props.yearsOfExperience}yrs
         </Typography>
