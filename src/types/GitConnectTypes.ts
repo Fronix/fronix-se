@@ -22,6 +22,7 @@ export interface Basics {
   summary: string;
   location: Location;
   profiles: Profile[];
+  headline: string;
 }
 
 export interface Work {

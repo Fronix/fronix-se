@@ -1,14 +1,16 @@
-import React, { useEffect, createRef } from 'react';
+import React, { useEffect, createRef, useRef } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Pane from '../../Layout/Panes/Pane/Pane';
 import { getGitConnectResume } from '../../../utils/API';
-import { Work, Skill } from '../../../types/GitConnectTypes';
+import { Work, Skill, Basics } from '../../../types/GitConnectTypes';
 import Terminal from 'react-console-emulator';
 import { useStoreActions, useStoreState } from '../../../store';
 import WorkCard from '../../WorkCard/WorkCard';
 import tempdata from '../../../tempdata.json';
 import Rating from '../../Rating/Rating';
+import { useHotkeys } from 'react-hotkeys-hook';
+import WhoAmI from '../../WhoAmI/WhoAmI';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,8 +37,11 @@ const StartPage = () => {
   const setResume = useStoreActions(actions => actions.resume.setResume);
   const resumeState = useStoreState(state => state.resume);
   const prefersDarkMode = useStoreState(state => state.themeSettings.prefersDarkMode);
-  const terminalRef: any = createRef();
+  const terminalRef = useRef();
   const uniqueKey = Math.random().toString();
+  //@ts-ignore
+  //Focus input when pressing enter
+  useHotkeys('enter', () => terminalRef.current.terminalInput.current.focus());
 
   const commands = {
     echo: {
@@ -83,6 +88,13 @@ const StartPage = () => {
         toggleTheme();
         return `Theme is set to ${prefersDarkMode ? 'Light mode' : 'Dark mode'}`;
       }
+    },
+    whoami: {
+      description: 'Who am i?',
+      usage: 'whoami',
+      fn: () => {
+        return <WhoAmI props={resumeState.resume.basics as Basics} />;
+      }
     }
   };
 
@@ -108,6 +120,7 @@ const StartPage = () => {
             }
             promptLabel={'root@fronix.se:'}
             disableOnProcess
+            autoFocus
           />
         </Pane>
       </Grid>

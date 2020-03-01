@@ -4,6 +4,9 @@ import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 
 const getTheme = (prefersDarkMode: boolean) =>
   createMuiTheme({
+    typography: {
+      fontFamily: 'monospace'
+    },
     palette: {
       type: prefersDarkMode ? 'dark' : 'light'
     },
