@@ -12,6 +12,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -63,6 +64,8 @@ const NetworkIcon = ({ network }: NetworkIconProps) => {
       return <GitHubIcon className={classes.icons} fontSize='small' />;
     case 'gitconnected':
       return <AllInclusiveIcon className={classes.icons} fontSize='small' />;
+    case 'linkedin':
+      return <LinkedInIcon className={classes.icons} fontSize='small' />;
     default:
       return <></>;
   }
@@ -115,7 +118,7 @@ const WhoAmI = ({ props }: WhoAmIProps) => {
               >
                 <NetworkIcon network={p.network} />
                 <Typography variant='caption' color='textPrimary'>
-                  {p.url.replace('https://', '')}
+                  {p.url.replace(/^(https?|http):\/\/www./, '')}
                 </Typography>
               </IconButton>
             );

@@ -8,6 +8,7 @@ import { useStoreActions, useStoreState } from '../../../store';
 import WorkCard from '../../WorkCard/WorkCard';
 import Rating from '../../Rating/Rating';
 import WhoAmI from '../../WhoAmI/WhoAmI';
+import Cowsay from '../../Cowsay/Cowsay';
 
 type CommandResultProps = {
   command: string;
@@ -92,6 +93,13 @@ const StartPage = () => {
       fn: () => {
         return <WhoAmI props={resume.resume.basics as Basics} />;
       }
+    },
+    cowsay: {
+      description: 'Cow says..',
+      usage: 'cowsay <string>',
+      fn: (arg1: string) => {
+        return <Cowsay text={arg1} />;
+      }
     }
   };
 
@@ -104,16 +112,13 @@ const StartPage = () => {
             commands={commands}
             welcomeMessage={
               <div>
-                Welcome to fronix.se!
+                <Cowsay text='Welcome to fronix.se!' />
                 <br />
                 Type help for commands
               </div>
             }
             promptLabel={'root@fronix.se:'}
             autoFocus
-            commandCallback={(commandResult: CommandResultProps) =>
-              console.log('Command executed, result:', commandResult)
-            }
             style={{
               maxHeight: '520px'
             }}
