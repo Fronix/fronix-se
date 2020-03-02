@@ -54,9 +54,9 @@ const WorkCard = ({ props }: WorkCardProps) => {
             </Typography>
             <Typography
               className={classes.workLocation}
-              variant='body2'
+              variant='caption'
               color='textSecondary'
-              component='p'
+              component='legend'
             >
               {props.location}
             </Typography>
