@@ -1,16 +1,23 @@
-import React, { useEffect, createRef, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Pane from '../../Layout/Panes/Pane/Pane';
-import { getGitConnectResume } from '../../../utils/API';
 import { Work, Skill, Basics } from '../../../types/GitConnectTypes';
 import Terminal from 'react-console-emulator';
 import { useStoreActions, useStoreState } from '../../../store';
 import WorkCard from '../../WorkCard/WorkCard';
-import tempdata from '../../../tempdata.json';
 import Rating from '../../Rating/Rating';
-import { useHotkeys } from 'react-hotkeys-hook';
 import WhoAmI from '../../WhoAmI/WhoAmI';
+import { getGitConnectResume } from '../../../utils/API';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+type CommandResultProps = {
+  command: string;
+  args: string[];
+  rawInput: string;
+  result: any;
+};
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,21 +34,34 @@ const useStyles = makeStyles((theme: Theme) =>
     listItemText: {
       flex: '0 1 auto',
       paddingRight: '5px'
+    },
+    backdrop: {
+      zIndex: theme.zIndex.drawer + 1,
+      color: '#fff'
     }
   })
 );
 
 const StartPage = () => {
   const classes = useStyles();
+  const [loadingResume, setLoadingResume] = useState(false);
   const toggleTheme = useStoreActions(actions => actions.themeSettings.togglePrefersDarkMode);
   const setResume = useStoreActions(actions => actions.resume.setResume);
   const resumeState = useStoreState(state => state.resume);
   const prefersDarkMode = useStoreState(state => state.themeSettings.prefersDarkMode);
   const terminalRef = useRef();
   const uniqueKey = Math.random().toString();
-  //@ts-ignore
-  //Focus input when pressing enter
-  useHotkeys('enter', () => terminalRef.current.terminalInput.current.focus());
+
+  useEffect(() => {
+    setLoadingResume(true);
+
+    // true = fake data
+    // false = real data
+    getGitConnectResume().then(res => {
+      setResume(res.data);
+    });
+    setLoadingResume(false);
+  }, [setResume]);
 
   const commands = {
     experience: {
@@ -93,10 +113,13 @@ const StartPage = () => {
 
   (window as any).terminal = terminalRef;
 
-  useEffect(() => {
-    setResume(tempdata as any);
-    //getGitConnectResume().then(res => setResume(res.data));
-  }, [setResume]);
+  if (loadingResume) {
+    return (
+      <Backdrop className={classes.backdrop} open>
+        <CircularProgress color='inherit' />
+      </Backdrop>
+    );
+  }
 
   return (
     <Grid container>
@@ -112,8 +135,13 @@ const StartPage = () => {
               </div>
             }
             promptLabel={'root@fronix.se:'}
-            disableOnProcess
             autoFocus
+            commandCallback={(commandResult: CommandResultProps) =>
+              console.log('Command executed, result:', commandResult)
+            }
+            style={{
+              maxHeight: '520px'
+            }}
           />
         </Pane>
       </Grid>
