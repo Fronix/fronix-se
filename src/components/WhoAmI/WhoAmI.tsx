@@ -11,7 +11,6 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
 import Divider from '@material-ui/core/Divider';
-import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -127,31 +126,4 @@ const WhoAmI = ({ props }: WhoAmIProps) => {
     </Card>
   );
 };
-
-{
-  /* <Card className={classes.root}>
-<Grid container>
-  <CardContent className={classes.content}>
-    <Grid item>
-      <Typography component='h5' variant='h5'>
-        {props.name}
-      </Typography>
-    </Grid>
-    <Grid item>
-      <Typography variant='subtitle2' color='textSecondary'>
-        {props.headline}
-      </Typography>
-    </Grid>
-    <Grid item>
-      <Typography variant='body1' color='textPrimary'>
-        {props.summary}
-      </Typography>
-    </Grid>
-    <Grid item>
-      <CardMedia className={classes.cover} image={props.picture} title={props.name} />
-    </Grid>
-  </CardContent>
-</Grid>
-</Card> */
-}
 export default WhoAmI;

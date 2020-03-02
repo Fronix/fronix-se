@@ -1,25 +1,37 @@
-import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import { Route, Switch } from 'react-router';
-import Header from '../components/Layout/Header/Header';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
-import { Link as RouterLink } from 'react-router-dom';
-import Footer from '../components/Layout/Footer/Footer';
 import StartPage from '../components/Pages/StartPage/StartPage';
+import { makeStyles } from '@material-ui/core/styles';
+import { Route, Switch } from 'react-router';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
-  // TODO: Reuse this style in header as well
   wrapper: {
     margin: 'auto',
     padding: theme.spacing(2)
   },
   root: {
     flexGrow: 1
+  },
+  alignItemsAndJustifyContent: {
+    margin: 'auto'
   }
 }));
+
+const NotFoundPage = () => {
+  const classes = useStyles();
+  return (
+    <div style={{ display: 'block', textAlign: 'center', paddingTop: '12rem' }}>
+      <img
+        src='https://media.giphy.com/media/3ohzdQ1IynzclJldUQ/giphy.gif'
+        alt={`Ah ah ah, you didn't say the magic word`}
+      />
+      <br />
+      <Button className={classes.alignItemsAndJustifyContent} onClick={() => window.history.back()}>
+        Go back
+      </Button>
+    </div>
+  );
+};
 
 const Routes = () => {
   const classes = useStyles();
@@ -28,6 +40,7 @@ const Routes = () => {
       {/* <Header /> */}
       <Switch>
         <Route path='/' exact component={StartPage} />
+        <Route component={NotFoundPage} />
       </Switch>
       {/* <Footer /> */}
     </div>
