@@ -3,4 +3,11 @@ const shortenText = (str: string, maxLen: number, separator = ' ') => {
   return str.substr(0, str.lastIndexOf(separator, maxLen));
 };
 
-export { shortenText };
+const spongebobText = (str: string) => {
+  let m = '';
+  for (let i = 0; i < str.length; i++)
+    m += i % 2 === 0 ? str[i].toUpperCase() : str[i].toLowerCase();
+  return m;
+};
+
+export { shortenText, spongebobText };

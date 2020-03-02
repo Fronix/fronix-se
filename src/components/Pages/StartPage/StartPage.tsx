@@ -9,6 +9,7 @@ import WorkCard from '../../WorkCard/WorkCard';
 import Rating from '../../Rating/Rating';
 import WhoAmI from '../../WhoAmI/WhoAmI';
 import Cowsay from '../../Cowsay/Cowsay';
+import { spongebobText } from '../../../utils/textUtils';
 
 type CommandResultProps = {
   command: string;
@@ -97,8 +98,23 @@ const StartPage = () => {
     cowsay: {
       description: 'Cow says..',
       usage: 'cowsay <string>',
-      fn: (arg1: string) => {
-        return <Cowsay text={arg1} />;
+      fn: function() {
+        const text = Array.from(arguments).join(' ');
+        if (!text) {
+          return <Cowsay text='Hmmm?' think />;
+        }
+        return <Cowsay text={text} />;
+      }
+    },
+    spongecow: {
+      description: 'gUeSs wHaT ThIs dOeS',
+      usage: 'spongecow <string>',
+      fn: function() {
+        const text = Array.from(arguments).join(' ');
+        if (!text) {
+          return <Cowsay text={`${spongebobText('You forgot to add text')}`} think />;
+        }
+        return <Cowsay text={spongebobText(text)} />;
       }
     }
   };
