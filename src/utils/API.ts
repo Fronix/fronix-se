@@ -19,4 +19,8 @@ const getGitConnectResume = async (fake: boolean = false) => {
   return { data: response.data, status: response.status };
 };
 
-export { getGitConnectResume };
+const getConsoleText = axios.get(
+  `https://gist.githubusercontent.com/Fronix/ad142871aecd0e3dd499a32d08c53c77/raw/3d78a5409b325ba0a0a6a93055f237a673255853/consoleLoad.txt`
+);
+
+export { getGitConnectResume, getConsoleText };

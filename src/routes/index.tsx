@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import StartPage from '../components/Pages/StartPage/StartPage';
 import { makeStyles } from '@material-ui/core/styles';
 import { Route, Switch } from 'react-router';
 import Button from '@material-ui/core/Button';
+import { getConsoleText, getGitConnectResume } from '../utils/API';
+import packageJson from '../../package.json';
+import { useStoreActions, useStoreState } from '../store';
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -14,6 +19,10 @@ const useStyles = makeStyles(theme => ({
   },
   alignItemsAndJustifyContent: {
     margin: 'auto'
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff'
   }
 }));
 
@@ -35,6 +44,37 @@ const NotFoundPage = () => {
 
 const Routes = () => {
   const classes = useStyles();
+  const asciiArt = useStoreState(state => state.themeSettings.asciiArt);
+  const setResume = useStoreActions(actions => actions.resume.setResume);
+  const [loadingResume, setLoadingResume] = useState(false);
+
+  useEffect(() => {
+    setLoadingResume(true);
+    // true = fake data
+    // false = real data
+    getGitConnectResume().then(res => {
+      setResume(res.data);
+    });
+    if (!asciiArt) {
+      getConsoleText.then(res => {
+        console.log(res.data);
+        console.log(
+          `%cVersion: ${packageJson.version}`,
+          'color: #66D9EF; font-size: 24px; font-family: Monospace;'
+        );
+      });
+    }
+    setLoadingResume(false);
+  }, [asciiArt, setResume]);
+
+  if (loadingResume) {
+    return (
+      <Backdrop className={classes.backdrop} open>
+        <CircularProgress color='inherit' />
+      </Backdrop>
+    );
+  }
+
   return (
     <div className={classes.root}>
       {/* <Header /> */}
