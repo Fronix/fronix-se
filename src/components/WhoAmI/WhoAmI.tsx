@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
     cardActions: {
       padding: '10px 0 0 0',
       display: 'block',
-      margin: 0
+      marginLeft: '-10px'
     },
     divider: {
       margin: '10px 0 3px 0'

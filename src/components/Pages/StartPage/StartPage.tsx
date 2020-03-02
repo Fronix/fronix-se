@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     skillRoot: {
       flexGrow: 1,
-      width: '30%'
+      width: '25%'
     },
     inline: {
       display: 'inline'

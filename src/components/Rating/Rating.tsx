@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import { Skill } from '../../types/GitConnectTypes';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 const labels: { [index: string]: string } = {
   1: 'Learning',
@@ -15,15 +16,13 @@ const labels: { [index: string]: string } = {
 };
 
 const useStyles = makeStyles({
-  grid: {
-    flexGrow: 1,
-    paddingBottom: '5px',
-    paddingTop: '5px'
-  },
-  root: {
+  legend: {
     display: 'flex',
-    flexGrow: 1,
-    flexWrap: 'wrap'
+    justifyContent: 'center'
+  },
+  paper: {
+    padding: 5,
+    width: 'auto'
   }
 });
 
@@ -35,25 +34,15 @@ const Rating = ({ props }: RatingProps) => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.grid} container spacing={2}>
-      <Grid item xs={8} sm={6} md={4} lg={4} xl={3}>
+    <Paper className={classes.paper} variant='outlined'>
+      <div className={classes.legend}>
         <Typography component='legend'>{props.name}</Typography>
-      </Grid>
-      <Grid item xs={2} sm={6} md={4} lg={4} xl={3}>
-        <Typography color='textSecondary' component='legend'>
+        <Typography color='textSecondary' component='legend' variant='body2'>
           {props.yearsOfExperience}yrs
         </Typography>
-      </Grid>
-
-      <MaterialRating
-        name='skill-level'
-        getLabelText={() => props.level}
-        value={props.rating}
-        readOnly
-        precision={1}
-        size='large'
-      />
-    </Grid>
+      </div>
+      <MaterialRating name='skill-level' value={props.rating} readOnly precision={1} size='large' />
+    </Paper>
   );
 };
 
