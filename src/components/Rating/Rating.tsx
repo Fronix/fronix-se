@@ -1,19 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Rating as MaterialRating } from '@material-ui/lab';
-import Box from '@material-ui/core/Box';
 import { Skill } from '../../types/GitConnectTypes';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-
-const labels: { [index: string]: string } = {
-  1: 'Learning',
-  2: 'Beginner',
-  3: 'Intermediate',
-  4: 'Advanced',
-  5: 'Expert'
-};
 
 const useStyles = makeStyles({
   legend: {
