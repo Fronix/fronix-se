@@ -44,13 +44,6 @@ const StartPage = () => {
   useHotkeys('enter', () => terminalRef.current.terminalInput.current.focus());
 
   const commands = {
-    echo: {
-      description: 'Echo a passed string.',
-      usage: 'echo <string>',
-      fn: function() {
-        return `${Array.from(arguments).join(' ')}`;
-      }
-    },
     experience: {
       description: 'Shows my work experience',
       usage: `experience`,
