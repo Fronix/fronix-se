@@ -24,6 +24,15 @@ type WorkCardProps = {
   props: Work;
 };
 
+const getCompanyLogo = (company: string) => {
+  switch (company) {
+    case 'TietoEVRY':
+      return 'https://i.imgur.com/RfCkldy.png';
+    default:
+      return '';
+  }
+};
+
 const WorkCard = ({ props }: WorkCardProps) => {
   const classes = useStyles();
   const workTime = props.endDate
@@ -40,7 +49,7 @@ const WorkCard = ({ props }: WorkCardProps) => {
           width='130'
           height='130'
           component='img'
-          src={props.companyLogo}
+          src={getCompanyLogo(props.company)}
           alt={props.company}
           title={props.company}
         />
