@@ -46,13 +46,14 @@ const Routes = () => {
   const classes = useStyles();
   const asciiArt = useStoreState(state => state.themeSettings.asciiArt);
   const setResume = useStoreActions(actions => actions.resume.setResume);
+  const resume = useStoreState(state => state.resume.resume);
   const [loadingResume, setLoadingResume] = useState(false);
 
   useEffect(() => {
     setLoadingResume(true);
     // true = fake data
     // false = real data
-    getGitConnectResume().then(res => {
+    getGitConnectResume(true).then(res => {
       setResume(res.data);
     });
     if (!asciiArt) {
@@ -65,7 +66,7 @@ const Routes = () => {
       });
     }
     setLoadingResume(false);
-  }, [asciiArt, setResume]);
+  }, [asciiArt, resume, setResume]);
 
   if (loadingResume) {
     return (

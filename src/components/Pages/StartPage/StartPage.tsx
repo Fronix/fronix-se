@@ -10,6 +10,7 @@ import Rating from '../../Rating/Rating';
 import WhoAmI from '../../WhoAmI/WhoAmI';
 import Cowsay from '../../Cowsay/Cowsay';
 import { spongebobText } from '../../../utils/textUtils';
+import { uniqueId } from 'lodash';
 
 type CommandResultProps = {
   command: string;
@@ -47,7 +48,6 @@ const StartPage = () => {
   const { resume, themeSettings } = useStoreState(state => state);
   const prefersDarkMode = useStoreState(state => state.themeSettings.prefersDarkMode);
   const terminalRef = useRef();
-  const uniqueKey = Math.random().toString();
 
   const commands = {
     experience: {
@@ -55,9 +55,9 @@ const StartPage = () => {
       usage: `experience`,
       fn: (arg1: any) => {
         return (
-          <Grid className={classes.root} key={uniqueKey} container spacing={2}>
+          <Grid className={classes.root} key={`${uniqueId('experience_')}`} container spacing={2}>
             {(resume.resume.work as Work[]).map(c => (
-              <Grid key={uniqueKey} item>
+              <Grid key={`${uniqueId('experience_')}`} item>
                 <WorkCard props={c as Work} />
               </Grid>
             ))}
@@ -70,9 +70,14 @@ const StartPage = () => {
       usage: `skills`,
       fn: (arg1: any) => {
         return (
-          <Grid className={classes.skillRoot} key={uniqueKey} container spacing={4}>
+          <Grid
+            className={classes.skillRoot}
+            key={`${uniqueId('experience_')}`}
+            container
+            spacing={4}
+          >
             {(resume.resume.skills as Skill[]).map(s => (
-              <Grid key={uniqueKey + s.name} item lg={5}>
+              <Grid key={`${uniqueId('experience_')}` + s.name} item lg={5}>
                 <Rating props={s} />
               </Grid>
             ))}
