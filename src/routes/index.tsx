@@ -53,7 +53,8 @@ const Routes = () => {
     setLoadingResume(true);
     // true = fake data
     // false = real data
-    getGitConnectResume(true).then(res => {
+    const development = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+    getGitConnectResume(development).then(res => {
       setResume(res.data);
     });
     if (!asciiArt) {
