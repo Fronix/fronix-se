@@ -17,7 +17,6 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
-      maxWidth: '60rem',
       display: 'flex'
     },
     content: {
