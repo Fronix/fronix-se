@@ -8,6 +8,9 @@ import packageJson from '../../package.json';
 import { useStoreActions, useStoreState } from '../store';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import HeadetBG from '../static/thomas-tastet-header-bg-unsplash.jpg';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -15,16 +18,30 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2)
   },
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    minHeight: '100vh',
+    display: 'flex'
   },
   alignItemsAndJustifyContent: {
-    margin: 'auto'
+    margin: '0 auto'
   },
   backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
     color: '#fff'
+  },
+  banner: {},
+  headerBody: {
+    alignItems: 'center',
+    display: 'flex',
+    padding: '10rem 0 5rem 0'
   }
 }));
+
+const backgroundImage = {
+  backgroundColor: 'black',
+  backgroundImage: `url(${HeadetBG})`,
+  backgroundPosition: 'center',
+  backgroundSize: 'cover'
+};
 
 const NotFoundPage = () => {
   const classes = useStyles();
@@ -53,7 +70,8 @@ const Routes = () => {
     setLoadingResume(true);
     // true = fake data
     // false = real data
-    getGitConnectResume(true).then(res => {
+    const development = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+    getGitConnectResume(development).then(res => {
       setResume(res.data);
     });
     if (!asciiArt) {
@@ -66,7 +84,7 @@ const Routes = () => {
       });
     }
     setLoadingResume(false);
-  }, [asciiArt, resume, setResume]);
+  }, [asciiArt, setResume]);
 
   if (loadingResume) {
     return (
@@ -78,12 +96,22 @@ const Routes = () => {
 
   return (
     <div className={classes.root}>
-      {/* <Header /> */}
-      <Switch>
-        <Route path='/' exact component={StartPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      {/* <Footer /> */}
+      <Container maxWidth={false} style={backgroundImage} className={classes.banner}>
+        <div className={classes.headerBody}>
+          <div className={classes.alignItemsAndJustifyContent}>
+            <Typography component='h2' variant='h2'>
+              Oscar Martin
+            </Typography>
+          </div>
+        </div>
+
+        {/* <Header /> */}
+        <Switch>
+          <Route path='/' exact component={StartPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+        {/* <Footer /> */}
+      </Container>
     </div>
   );
 };

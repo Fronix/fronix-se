@@ -6,7 +6,7 @@ import { Work, Skill, Basics } from '../../../types/GitConnectTypes';
 import Terminal from 'react-console-emulator';
 import { useStoreActions, useStoreState } from '../../../store';
 import WorkCard from '../../WorkCard/WorkCard';
-import Rating from '../../Rating/Rating';
+import Rating, { RatingToProgress } from '../../Rating/Rating';
 import WhoAmI from '../../WhoAmI/WhoAmI';
 import Cowsay from '../../Cowsay/Cowsay';
 import { spongebobText } from '../../../utils/textUtils';
@@ -69,28 +69,21 @@ const StartPage = () => {
       description: 'Shows details about my skillset',
       usage: `skills`,
       fn: (arg1: any) => {
-        return (
-          <Grid
-            className={classes.skillRoot}
-            key={`${uniqueId('experience_')}`}
-            container
-            spacing={4}
-          >
-            {(resume.resume.skills as Skill[]).map(s => (
-              <Grid key={`${uniqueId('experience_')}` + s.name} item lg={5}>
-                <Rating props={s} />
-              </Grid>
-            ))}
-          </Grid>
-        );
+        const sortedArray = (resume.resume.skills as Skill[]).sort((a, b) => {
+          const levelA = RatingToProgress[(a.level as any) as keyof typeof RatingToProgress];
+          const levelB = RatingToProgress[(b.level as any) as keyof typeof RatingToProgress];
+          return levelA > levelB ? 1 : -1;
+        });
+        return sortedArray.map(s => <Rating key={s.name} props={s} />).reverse();
       }
     },
     'toggle-theme': {
       description: 'Toggles theme between light and dark',
       usage: `toggle-theme`,
       fn: () => {
-        toggleTheme();
-        return `Theme is set to ${prefersDarkMode ? 'Light mode' : 'Dark mode'}`;
+        //toggleTheme();
+        //return `Theme is set to ${prefersDarkMode ? 'Light mode' : 'Dark mode'}`;
+        return `Couldn't switch theme, please do not try again.`;
       }
     },
     whoami: {
@@ -131,17 +124,11 @@ const StartPage = () => {
           <Terminal
             ref={terminalRef}
             commands={commands}
-            welcomeMessage={
-              <div>
-                <Cowsay text='Welcome to fronix.se!' />
-                <br />
-                Type help for commands
-              </div>
-            }
+            welcomeMessage={<div>Type help for commands</div>}
             promptLabel={'root@fronix.se:'}
             autoFocus
             style={{
-              maxHeight: '520px'
+              height: '520px'
             }}
           />
         </Pane>

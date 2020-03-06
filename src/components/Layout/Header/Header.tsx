@@ -1,12 +1,9 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme, withStyles } from '@material-ui/core/styles';
-import Switch, { SwitchClassKey, SwitchProps } from '@material-ui/core/Switch';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import { useStoreState, useStoreActions } from '../../../store';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Container from '@material-ui/core/Container';
+import HeadetBG from '../../../static/thomas-tastet-header-bg-unsplash.jpg';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,9 +20,21 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'flex-start',
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(2)
+    },
+    banner: {
+      minHeight: '100vh'
     }
   })
 );
+
+const backgroundImage = {
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'black',
+  backgroundImage: `url(${HeadetBG})`,
+  backgroundPosition: 'center',
+  backgroundSize: 'cover'
+};
 
 const Header = () => {
   const classes = useStyles();
@@ -36,20 +45,11 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      {/* <AppBar position='static'>
-        <Toolbar className={classes.toolbar}>
-          <Typography variant='h6' className={classes.title}>
-            fronix.se
-          </Typography>
-          <FormControlLabel
-            control={<Switch checked={prefersDarkMode} onChange={() => togglePrefersDarkMode()} />}
-            label='Dark'
-          />
-        </Toolbar>
-      </AppBar> */}
-      <Typography variant='h6' className={classes.title}>
-        fronix.se
-      </Typography>
+      <Container maxWidth={false} style={backgroundImage} className={classes.banner}>
+        <Typography component='h5' variant='h5'>
+          Oscar Martin
+        </Typography>
+      </Container>
     </div>
   );
 };

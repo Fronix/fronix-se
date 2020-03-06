@@ -8,7 +8,13 @@ const getTheme = (prefersDarkMode: boolean) =>
       fontFamily: 'monospace'
     },
     palette: {
-      type: prefersDarkMode ? 'dark' : 'light'
+      type: prefersDarkMode ? 'dark' : 'light',
+      secondary: {
+        light: '#b1003f',
+        main: '#b1003f',
+        dark: '#b1003f',
+        contrastText: '#fff'
+      }
     },
     overrides: {
       ...muiLinkOverride(prefersDarkMode),

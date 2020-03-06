@@ -1,6 +1,6 @@
 {
   "name": "fronix-se",
-  "version": "0.5.1",
+  "version": "0.7.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.4",
@@ -20,7 +20,7 @@
     "lodash": "^4.17.15",
     "patch-package": "^6.2.1",
     "react": "^16.13.0",
-    "react-console-emulator": "^3.0.4",
+    "react-console-emulator": "^3.0.5",
     "react-dom": "^16.13.0",
     "react-hotkeys-hook": "^1.5.4",
     "react-router": "^5.1.2",
