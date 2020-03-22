@@ -31,6 +31,8 @@ const getCompanyLogo = (company: string) => {
   switch (company) {
     case 'TietoEVRY':
       return 'https://i.imgur.com/RfCkldy.png';
+    case 'Meridium':
+      return 'https://i.imgur.com/IecQIsb.png';
     default:
       return '';
   }
