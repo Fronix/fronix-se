@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme: Theme) =>
     workLocation: {
       marginLeft: '4px',
       color: theme.palette.grey[400]
+    },
+    summary: {
+      paddingTop: theme.spacing(1)
     }
   })
 );
@@ -72,6 +75,9 @@ const WorkCard = ({ props }: WorkCardProps) => {
           </div>
           <Typography variant='body2' color='textSecondary' component='p'>
             {workTime}
+          </Typography>
+          <Typography className={classes.summary} variant='body1' component='div'>
+            {props.summary}
           </Typography>
         </CardContent>
       </CardActionArea>
