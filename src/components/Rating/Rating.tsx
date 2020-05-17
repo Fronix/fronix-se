@@ -49,14 +49,14 @@ const Rating = ({ props }: RatingProps) => {
   return (
     <div className={classes.root}>
       {props.name}
-      <LinearProgress
+      {/* <LinearProgress
         classes={{
           root: classes.linearRoot
         }}
         variant='determinate'
         color='secondary'
         value={level}
-      />
+      /> */}
     </div>
     // <Paper className={classes.paper} variant='outlined'>
     //   <div className={classes.legend}>

@@ -6,6 +6,9 @@ const prefersDarkMode = localStorage.getItem('prefersDarkMode');
 export interface ThemeSettingsModel {
   prefersDarkMode: boolean;
   asciiArt: string;
+  simpleView: boolean;
+  setSimpleView: Action<ThemeSettingsModel, boolean>;
+  toggleSimpleView: Action<ThemeSettingsModel>
   togglePrefersDarkMode: Action<ThemeSettingsModel>;
   onThemeChange: ActionOn<ThemeSettingsModel, StoreModel>;
   setAsciiArt: Action<ThemeSettingsModel, string>;
@@ -14,6 +17,13 @@ export interface ThemeSettingsModel {
 const themeSettings: ThemeSettingsModel = {
   prefersDarkMode: JSON.parse(prefersDarkMode!) ?? true,
   asciiArt: '',
+  simpleView: false,
+  setSimpleView: action((state, payload) => {
+    state.simpleView = payload;
+  }),
+  toggleSimpleView: action(state => {
+    state.simpleView = !state.simpleView;
+  }),
   togglePrefersDarkMode: action(state => {
     state.prefersDarkMode = !state.prefersDarkMode;
   }),

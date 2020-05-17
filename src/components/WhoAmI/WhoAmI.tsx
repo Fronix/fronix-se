@@ -13,6 +13,7 @@ import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,7 +21,10 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex'
     },
     content: {
-      width: '70%'
+      width: '70%',
+      [theme.breakpoints.between('xs', 'sm')]: {
+        width: '100%'
+      }
     },
     cover: {
       flex: '1 0 auto',
@@ -124,7 +128,9 @@ const WhoAmI = ({ props }: WhoAmIProps) => {
           })}
         </CardActions>
       </CardContent>
-      <CardMedia className={classes.cover} image={props.picture} title={props.name} />
+      <Hidden only={['xs', 'sm']}>
+        <CardMedia className={classes.cover} image={props.picture} title={props.name} />
+      </Hidden>
     </Card>
   );
 };
