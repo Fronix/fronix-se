@@ -17,9 +17,11 @@ const Pane: FC<PaneProps> = ({ children }) => {
 
   return (
     <Paper className={`${classes.root} ${simpleView ? !matches ? classes.sixty : '' : classes.sixty}`}>
-      <Button disabled={matches} className={classes.simpleViewButton} variant="contained" color="primary" onClick={() => toggleSimpleView()}>
-        {simpleView ? 'Show cmd' : 'Simple view'}
-      </Button>
+      <div className={classes.simpleViewButton}>
+        <Button disabled={matches} variant="contained" color="primary" onClick={() => toggleSimpleView()}>
+          {simpleView ? 'Show cmd' : 'Simple view'}
+        </Button>
+      </div>
       <div className={classes.paper}>
         {children}
       </div>
