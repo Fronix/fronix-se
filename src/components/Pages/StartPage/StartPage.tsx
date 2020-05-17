@@ -64,9 +64,6 @@ const StartPage = () => {
   const terminalRef = useRef();
   const matches = useMediaQuery(theme.breakpoints.up('lg'));
 
-  console.log('Show cmd: ', (matches && !simpleView))
-  //console.log('Show cmd: ', (!matches && simpleView))
-
   const rating = () => {
     const sortedArray = (resume.resume.skills as Skill[]).sort((a, b) => {
       const levelA = RatingToProgress[(a.level as any) as keyof typeof RatingToProgress];
