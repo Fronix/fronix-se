@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Work } from '../../types/GitConnectTypes';
 import { format } from 'date-fns';
+import { useStoreState } from '../../store';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -39,6 +40,7 @@ const getCompanyLogo = (company: string) => {
 };
 
 const WorkCard = ({ props }: WorkCardProps) => {
+  const { simpleView } = useStoreState(state => state.themeSettings);
   const classes = useStyles();
   const workTime = props.endDate
     ? `${format(new Date(props.startDate), 'MMM yyyy')} to ${format(
@@ -62,7 +64,7 @@ const WorkCard = ({ props }: WorkCardProps) => {
           <Typography gutterBottom variant='h5' component='h2'>
             {props.company}
           </Typography>
-          <div style={{ display: 'flex' }}>
+          <div style={!simpleView ? { display: 'flex' } : {}}>
             <Typography variant='body2' component='p'>
               {props.position}
             </Typography>
