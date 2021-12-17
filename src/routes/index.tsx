@@ -100,7 +100,7 @@ const Routes = () => {
         <div className={classes.headerBody}>
           <div className={classes.alignItemsAndJustifyContent}>
             <Typography component='h2' variant='h2'>
-              Oscar Martin
+              Oscar Martin :)ß
             </Typography>
           </div>
         </div>
