@@ -1,24 +1,35 @@
 {
-  "name": "fronix.se",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prepare": "husky install",
+    "type-check": "tsc --pretty --noEmit",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.2.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.14",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss-filters": "3.0.0",
+    "typescript": "^4.7.4"
   },
   "devDependencies": {
-    "@types/node": "18.0.0",
-    "@types/react": "18.0.14",
-    "@types/react-dom": "18.0.5",
-    "eslint": "8.18.0",
-    "eslint-config-next": "12.2.0",
-    "typescript": "4.7.4"
+    "@babel/core": "^7.13.15",
+    "@emotion/babel-plugin": "11.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "autoprefixer": "^10.4.4",
+    "eslint": "^8.18.0",
+    "eslint-config-next": "^12.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.1.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^13.0.3",
+    "next": "latest",
+    "postcss": "^8.4.12",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^2.2.19"
   }
 }
