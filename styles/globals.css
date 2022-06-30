@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  a {
+    color: theme(colors.text);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: theme(colors.textLink);
+  }
+
+  a:hover svg {
+    fill: theme(colors.textLinkTint);
+  }
+
+  a,
+  section:focus {
+  }
+  a,
+  section:focus:not(:focus-visible) {
+  }
+  a,
+  section:focus-visible {
+    outline: 2px dashed theme(colors.textLink);
+    outline-offset: 3px;
+  }
+}
