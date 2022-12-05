@@ -3,12 +3,14 @@ name: Docker image
 on:
   workflow_dispatch:
   push:
-    branches: ["master"]
+    branches: ["master", "main"]
 
 jobs:
   build:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag fronix-se:$(date +%s) --tag fronix-se:latest
