@@ -1,35 +1,37 @@
-import React from "react";
-import { DocsThemeConfig } from "nextra-theme-docs";
-import LastUpdated from "./components/Lastupdated";
+import { NextraBlogTheme } from "nextra-theme-blog";
+import WavingHand from "./components/WavingHand";
 
-const config: DocsThemeConfig = {
-  logo: <span>fronix.se</span>,
-  docsRepositoryBase: "https://github.com/fronix/fronix-se",
-  footer: {
-    text: "fronix.se",
+const config: NextraBlogTheme = {
+  components: {
+    h1: ({ children }) => <h1>{children}</h1>,
   },
-  editLink: {
-    text: "",
-  },
-  feedback: {
-    content: undefined,
-  },
-  search: {
-    component: undefined,
-  },
-  gitTimestamp: LastUpdated,
-  useNextSeoProps() {
-    return {
-      title: "fronix - i do stuff",
-      description: "i watch movies and do some coding",
-      openGraph: {
-        type: "website",
-        locale: "sv_SE",
-        url: "https://fronix.se",
-        site_name: "fronix.se",
-      },
-    };
-  },
+  head: ({ meta, title }) => <WavingHand />,
+  navs: [
+    {
+      url: "https://github.com/fronix",
+      name: "GitHub",
+    },
+  ],
+  darkMode: true,
+  dateFormatter: (date) =>
+    `Last updated at ${date.toLocaleDateString("sv-SE")}`,
+  footer: (
+    <small style={{ display: "block", marginTop: "8rem" }}>
+      {new Date().getFullYear()} © Oscar Martin
+      <style jsx>{`
+        a {
+          float: right;
+        }
+
+        @media screen and (max-width: 480px) {
+          article {
+            padding-top: 2rem;
+            padding-bottom: 4rem;
+          }
+        }
+      `}</style>
+    </small>
+  ),
 };
 
 export default config;
