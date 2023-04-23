@@ -6,8 +6,6 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY package.json package-lock* ./
-# Copy patches folder
-COPY patches ./patches
 RUN npm ci
 
 

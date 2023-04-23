@@ -5,7 +5,7 @@ const config: NextraBlogTheme = {
   components: {
     h1: ({ children }) => <h1>{children}</h1>,
   },
-  head: ({ meta, title }) => <WavingHand />,
+  head: () => <WavingHand />,
   navs: [
     {
       url: "https://github.com/fronix",
