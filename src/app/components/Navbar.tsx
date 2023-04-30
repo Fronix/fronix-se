@@ -8,7 +8,8 @@ const Navbar = () => {
     <header className='z-1 relative z-10 flex w-full items-center justify-between px-32 py-8 font-medium sm:px-8 md:px-12 lg:px-16'>
       <div className='flex w-full items-center justify-between max-lg:hidden'>
         <nav className='flex gap-6'>
-          {/* <HoverLink href='/' title='Home' /> */}
+          <HoverLink href='/' title='Start' />
+          <HoverLink href='/posts' title='Posts' />
           <div>&nbsp;</div>
           <div>&nbsp;</div>
           <div>&nbsp;</div>
