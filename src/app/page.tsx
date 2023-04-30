@@ -1,6 +1,6 @@
 import { type NextPage } from 'next';
 import Image from 'next/image';
-import homeImage from '../../public/logo_transparent.png';
+import homeImage from '../../public/logo_variant_1.png';
 const Home: NextPage = () => {
   return (
     <div className='justify-space-center flex w-full items-center'>
