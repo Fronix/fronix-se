@@ -1,17 +1,14 @@
-import { type NextPage } from 'next';
-import { type ParsedUrlQuery } from 'querystring';
-import { Post } from '../page';
-import ReactMarkdown from 'react-markdown';
-import { notFound } from 'next/navigation';
 import fs from 'fs';
+import { notFound } from 'next/navigation';
 import path from 'path';
+import ReactMarkdown from 'react-markdown';
 import HoverLink from '../../components/HoverLink';
 
 export const dynamic = 'auto';
 export const revalidate = 0;
 export const fetchCache = 'force-no-store';
 
-type PostsProps = NextPage<Post> & { params: { pid: string } };
+type PostsProps = { params: { pid: string } };
 
 const getPost = (ptitle: string) => {
   // Calculate path to posts folder (src/posts)
