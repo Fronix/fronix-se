@@ -20,7 +20,7 @@ A dungeons and dragons fantasy map world with 4 continents and landmarks of citi
 ```
 
 ### Character grids
-<img src="https://cdn.midjourney.com/07521b00-1715-4e6d-8d55-99359e9fe00d/grid_0.png" width="800" height="600">
+![DnD 2](https://cdn.midjourney.com/07521b00-1715-4e6d-8d55-99359e9fe00d/grid_0.png)
 
 Prompt:
 ```
