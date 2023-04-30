@@ -3,7 +3,9 @@ name: Build and push docker image
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
+    branches: ['main']
+    paths-ignore:
+      - 'posts/**/*.md'
 
 jobs:
   build:
