@@ -11,13 +11,17 @@
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.2.1",
     "daisyui": "^2.51.6",
+    "markdown-to-jsx": "^7.2.0",
     "next": "^13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/markdown-to-jsx": "^7.0.1",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "@tailwindcss/typography": "^0.5.9",
     "@types/eslint": "^8.21.3",
     "@types/eslint-config-prettier": "^6.11.0",

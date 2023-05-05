@@ -7,6 +7,18 @@ await import('./src/env.mjs');
 /** @type {import("next").NextConfig} */
 const config = {
   output: 'standalone',
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.midjourney.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '**.discordapp.net'
+      }
+    ]
+  },
   reactStrictMode: true,
   experimental: {
     appDir: true
