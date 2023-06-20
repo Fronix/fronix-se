@@ -5,6 +5,7 @@ const Home: NextPage = () => {
   return (
     <div className='justify-space-center flex w-full items-center'>
       <div className='m-auto'>
+        This is a test
         <Image src={homeImage} alt='fronix' height={750} width={750} />
       </div>
     </div>
