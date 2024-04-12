@@ -15,7 +15,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
           <main className='font-mont flex w-full items-center'>{children}</main>
           <footer className='mt-auto'>
             <div className='flex h-16 items-center justify-center'>
-              <p className='text-sm'>© 2023 Oscar Martin</p>
+              <p className='text-sm'>© 2024 Oscar Martin</p>
             </div>
           </footer>
         </div>
